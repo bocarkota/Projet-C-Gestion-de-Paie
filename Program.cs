@@ -1,123 +1,75 @@
-﻿using System;
-
-namespace GestionPaie
+﻿public class Employe
 {
-    class Program
+    public int ID_Employe { get; set; }
+    public string nomEmploye { get; set; }
+    public string prenomEmploye { get; set; }
+    public DateOnly dateNaissance { get; set; }
+    public string adresseEmploye { get; set; }
+    public DateOnly dateEmbauche { get; set; }
+    public int nbrHeureTravail { get; set; }
+    public bool assiduiteEmploye { get; set; }
+    public string gradeEmploye { get; set; }
+    public decimal salaireBaseEmploye { get; set; }
+
+}
+
+public class Fiche_paiement
+{
+    public int ID_fiche { get; set; }
+    public Employe employe { get; set; }
+    public decimal Prime { get; set; }
+    public DateTime Date_paiement { get; set; }
+
+    public void Affichage_fiche_paiement()
     {
-        static void Main(string[] args)
-        {
-            bool continuer = true;
+        Console.WriteLine("ID Fiche: {0}", ID_fiche);
+        Console.WriteLine("Employe ID: {0}", Employe.EmployeId);
+        Console.WriteLine("Employe Name: {0}", Employe.EmployeName);
+        Console.WriteLine("Salaire: {0}", Employe.Salaire);
+        Console.WriteLine("Prime: {0}", Prime);
+        Console.WriteLine("Date Paiement: {0}", Date_paiement.ToString("dd/MM/yyyy"));
+    }
 
-            while (continuer)
-            {
-                Console.WriteLine("Gestion de paie");
-                Console.WriteLine("----------------");
-                Console.WriteLine("1. Ajouter employé");
-                Console.WriteLine("2. Modifier employé");
-                Console.WriteLine("3. Supprimé employé");
-                Console.WriteLine("4. Informations sur les employés");
-                Console.WriteLine("5. Calcul Paiement");
-                Console.WriteLine("6. Afficher Fiches de paiement");
-                Console.WriteLine("7. Modifier Fiche de Paiement");
-                Console.WriteLine("8.Ajouter Historique Paiement");
-                Console.WriteLine("9.Supprimer Historique Paiement");
-                Console.WriteLine("10. Quitter");
+    public void Modifier_fiche_paiement(decimal nouvelle_prime)
+    {
+        Prime = nouvelle_prime;
+        Console.WriteLine("Fiche de paiement modifiee avec succes!");
+        AffichageFichePaiement();
+    }
+}
 
-                Console.Write("Choisissez une option : ");
-                string Choix = Console.ReadLine();
+public class Gestion_paiement
+{
+    public void Affichage_paiement(Fiche_paiement fichePaiement)
+    {
+        fichePaiement.Affichage_fiche_paiement();
+    }
+}
 
-                switch (Choix)
-                {
-                    case "1":
-                        AjouterEmploye();
-                        break;
-                    case "2":
-                        ModifierEmploye();
-                        break;
-                    case "3":
-                        SupprimerEmploye();
-                        break;
-                    case "4":
-                        AfficherEmploye();
-                        break;
-                    case "5":
-                        CalculSalaire();
-                        break;
-                    case "6":
-                        AfficherFichePaiement();
-                        break;
-                    case "7":
-                        ModifierFichePaiement();
-                        break;
-                    case "8":
-                        AjouterHistoriquePaiement();
-                        break;
-                    case "9":
-                        SupprimerHistoriquePaiement();
-                        break;
-                    default:
-                        Console.WriteLine("Choix impossible");
-                        break;
-                }
-                Console.WriteLine();
-            }
-        }
-        static void AjouterEmploye()
+public class Program
+{
+    static void Main(string[] args)
+    {
+        Employe employe = new Employe()
         {
-            Console.WriteLine("Ajout des employés :");
-            Console.WriteLine("---------------------------------------");
-            // Code 
-        }
+            EmployeId = 1,
+            EmployeName = "John Doe",
+            Salaire = 5000.00m
+        };
 
-        static void ModifierEmploye()
+        Fiche_paiement fichePaiement = new Fiche_paiement()
         {
-            Console.WriteLine("Employe modifier !");
-            Console.WriteLine("-------------------");
-            // Code 
-        }
+            ID_fiche = 1,
+            Employe = employe,
+            Prime = 1000.00m,
+            Date_paiement = DateTime.Now
+        };
 
-        static void SupprimerEmploye()
-        {
-            Console.WriteLine("Employe Supprimé !");
-            Console.WriteLine("---------------------------");
-            // Code 
-        }
+        Gestion_paiement gestion_paiement = new Gestion_paiement();
+        gestion_paiement.Affichage_paiement(fichePaiement);
 
-        static void AfficherEmploye()
-        {
-            Console.WriteLine("Les Employe sont :");
-            Console.WriteLine("--------------------------------");
-            // Code
-        }
-        static void CalculSalaire()
-        {
-            Console.WriteLine("Salaire est :");
-            Console.WriteLine("--------------------------------");
-            // Code
-        }
-        static void AfficherFichePaiement()
-        {
-            Console.WriteLine("La fiche de paiements est :");
-            Console.WriteLine("--------------------------------");
-            // Code 
-        }
-        static void ModifierFichePaiement()
-        {
-            Console.WriteLine("la fiche de paiement est modifiée");
-            Console.WriteLine("--------------------------------");
-            // Code 
-        }
-        static void AjouterHistoriquePaiement()
-        {
-            Console.WriteLine("L'historique des paiements :");
-            Console.WriteLine("--------------------------------");
-            // Code
-        }
-        static void SupprimerHistoriquePaiement()
-        {
-            Console.WriteLine("Historique des Paiements supprimée");
-            Console.WriteLine("--------------------------------");
-            // Code
-        }
+        // Modifier la fiche de paiement
+        fichePaiement.Modifier_fiche_paiement(1500.00m);
+        Console.ReadKey();
     }
 }
