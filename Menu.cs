@@ -20,8 +20,8 @@ namespace Paie.Models
                 Console.WriteLine("4. AFFICHER TOUS LES EMPLOYES");
                 Console.WriteLine("5. CALCULE DE SALAIRE");
                 Console.WriteLine("6. FICHE DE PAIE");
-                Console.WriteLine("6. HISTORIQUE DE PAIEMENT");
-                Console.WriteLine("7. QUITTER");
+                Console.WriteLine("7. HISTORIQUE DE PAIEMENT");
+                Console.WriteLine("8. QUITTER");
 
                 choix = int.Parse(Console.ReadLine());
 
@@ -52,8 +52,11 @@ namespace Paie.Models
                         gestion.fiche_paie();
 
                         break;
-
                     case 7:
+                        
+                        break;
+
+                    case 8:
                         Console.WriteLine("AU REVOIR !");
                         break;
                     default:
