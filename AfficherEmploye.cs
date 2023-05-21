@@ -1,4 +1,4 @@
-﻿using projetFinal;
+using projetFinal;
 
 public class AfficherEmploye
 {
@@ -17,7 +17,7 @@ public class AfficherEmploye
             Console.WriteLine($"NOMBRES D'HEURES TRAVAILLES : {employe.nbrHeureTravail} Heure(s)");
             Console.WriteLine($"ASSIDUITE : {(employe.assiduiteEmploye ? "OUI" : "NON")}");
             Console.WriteLine($"GRADE : {employe.gradeEmploye}");
-            Console.WriteLine($"SALAIRE DE BASE : {employe.salaireBaseEmploye} FCFA");
+            Console.WriteLine($"SALAIRE PAR HEURE: {employe.salaireHeureEmploye} FCFA");
             Console.WriteLine();
         }
     }
