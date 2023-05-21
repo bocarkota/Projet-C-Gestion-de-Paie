@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,12 +14,21 @@ namespace projetFinal
         public DateOnly dateNaissanceEmploye { get; set; }
         public string adresseEmploye { get; set; }
         public DateOnly dateEmbaucheEmploye { get; set; }
-        public double nbrHeureTravail { get; set; }
+        public int nbrHeureTravail { get; set; }
         public bool assiduiteEmploye { get; set; }
         public string gradeEmploye { get; set; }
-        public decimal salaireBaseEmploye { get; set; }
+        public decimal salaireHeureEmploye { get; set; }
 
-        public Employe(int id,string nom, string prenom, DateOnly dateN, string adresse, DateOnly dateE, double nbrHeureT, bool assiduite, string grade, decimal salaireBase)
+
+        public decimal salaireFixe { get; set; }
+        public decimal prime { get; set; }
+        public decimal taxe { get; set; }
+
+        public decimal salaireNet { get; set; }
+
+
+
+        public Employe(int id,string nom, string prenom, DateOnly dateN, string adresse, DateOnly dateE, int nbrHeureT, bool assiduite, string grade, decimal salaireHeure)
         {
             this.ID_Employe = id;
             this.nomEmploye = nom;
@@ -30,9 +39,19 @@ namespace projetFinal
             this.nbrHeureTravail = nbrHeureT;
             this.assiduiteEmploye = assiduite;
             this.gradeEmploye = grade;
-            this.salaireBaseEmploye = salaireBase;
+            this.salaireHeureEmploye = salaireHeure;
             
             this.ID_Employe = GetNextEmployeeId();
+        }
+
+        public Employe(decimal salaire_fixe, decimal prime, decimal taxe, decimal salaireNet)
+        {
+            this.salaireFixe = salaireFixe;
+            this.prime = prime;
+            this.taxe = taxe;
+            this.salaireNet = salaireNet;
+
+
         }
 
         private static int IdEmployeSuivant = 0;
