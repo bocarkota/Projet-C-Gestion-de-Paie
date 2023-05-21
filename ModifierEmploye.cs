@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -83,8 +83,8 @@ namespace projetFinal
             // ENTRER LE NOUVEAU NOMBRE D'HEURE EFFECTUE PAR L'EMPLOYE
 
             Console.Write("ENTRER LE NOUVEAU NOMBRE D'HEURE EFFECTUEES PAR L'EMPLOYE : ");
-            double nouveauNbrHeureT;
-            while (!double.TryParse(Console.ReadLine(), out nouveauNbrHeureT))
+            int nouveauNbrHeureT;
+            while (!int.TryParse(Console.ReadLine(), out nouveauNbrHeureT))
             {
                 Console.Write("NOMBRE INVALIDE, VEUILLEZ REESAYER: ");
             }
@@ -104,13 +104,13 @@ namespace projetFinal
 
             // ENTRER LE NOUVEAU SALAIRE DE L'EMPLOYE
 
-            Console.Write("ENTRER LE NOUVEAU SALAIRE DE BASE DE L'EMPLOYE : ");
-            decimal nouveauSalaireBase;
-            while (!decimal.TryParse(Console.ReadLine(), out nouveauSalaireBase))
+            Console.Write("ENTRER LE NOUVEAU SALAIRE PAR HEURE DE L'EMPLOYE : ");
+            decimal nouveauSalaireHeure;
+            while (!decimal.TryParse(Console.ReadLine(), out nouveauSalaireHeure))
             {
                 Console.Write("NOMBRE INVALIDE, VEUILLEZ REESAYER : ");
             }
-            employeAModifier.salaireBaseEmploye = nouveauSalaireBase;
+            employeAModifier.salaireHeureEmploye = nouveauSalaireHeure;
 
             Console.WriteLine("L'EMPLOYE A ETE MODIFIE AVEC SUCCES !.");
         }
