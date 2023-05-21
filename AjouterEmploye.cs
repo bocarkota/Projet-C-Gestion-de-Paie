@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +20,7 @@ namespace projetFinal
             string adresse = String.Empty;
             DateOnly dateN;
             DateOnly dateE;
-            double nbrHeureT = Double.MaxValue;
+            int nbrHeureT = int.MaxValue;
 
 
 
@@ -110,7 +110,8 @@ namespace projetFinal
                 Console.Write("ENTRER LE NOMBRE D'HEURE(S) EFFECTUE(S) PAR L'EMPLOYE : ");
                 try
                 {
-                    nbrHeureT = Convert.ToDouble(Console.ReadLine());
+                     nbrHeureT = Convert.ToInt32(Console.ReadLine());
+
                 }
                 catch
                 {
@@ -127,14 +128,14 @@ namespace projetFinal
             Console.Write("ENTRER LE GRADE DE L'EMPLOYE : ");
             string grade = Console.ReadLine();
 
-            Console.Write("ENTRER LE SALAIRE DE BASE DE L'EMPLOYE  : ");
-            decimal salaireBase;
-            while (!decimal.TryParse(Console.ReadLine(), out salaireBase))
+            Console.Write("ENTRER LE SALAIRE DE PAR HEURE DE L'EMPLOYE  : ");
+            decimal salaireHeure;
+            while (!decimal.TryParse(Console.ReadLine(), out salaireHeure))
             {
                 Console.Write("NOMBRE INVALIDE, VEUILLEZ REESAYER : ");
             }
 
-            Employe nouvelEmploye = new Employe(id, nom, prenom, dateN, adresse, dateE, nbrHeureT, assiduite, grade, salaireBase);
+            Employe nouvelEmploye = new Employe(id, nom, prenom, dateN, adresse, dateE, nbrHeureT, assiduite, grade, salaireHeure);
             return nouvelEmploye;
         }
 
