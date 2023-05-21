@@ -10,7 +10,7 @@ namespace projetFinal
     {
         public static void Quitter()
         {
-            Console.WriteLine("AU REVOIR  ! APPUYEZ SUR UNR...");
+            Console.WriteLine("AU REVOIR  ! APPUYEZ SUR ENTER");
             Console.ReadKey();
             Environment.Exit(0);
         }
