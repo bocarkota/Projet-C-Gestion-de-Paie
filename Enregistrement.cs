@@ -12,19 +12,22 @@ namespace projetFinal
         public void Menu()
         {
             List<Employe> listeEmployes = new List<Employe>();
+           
             int choix;
             do
             {
                 Console.WriteLine("*****************************************************************");
                 Console.WriteLine("*****************************************************************");
                 Console.WriteLine("**************   FAITE VOTRE CHOIX:  ****************************");
-                Console.WriteLine("                1: AJOUTER UN EMPLOYE                            ");
-                Console.WriteLine("                2: MODIFIER UN EMPLOYE                           ");
-                Console.WriteLine("                3: SUPPRIMER UN EMPLOYE                          ");
-                Console.WriteLine("                4: AFFICHER LA LISTE DES EMPLOYES                ");
-                Console.WriteLine("                5: RECHERCHER UN EMPLOYE                         ");
-                Console.WriteLine("                6: CALCULER LE SALAIRE DE L'EMPLOYE              ");
-                Console.WriteLine("                7: QUITTER                                       ");
+                Console.WriteLine("*****               1: AJOUTER UN EMPLOYE                   *****");
+                Console.WriteLine("*****               2: MODIFIER UN EMPLOYE                  *****");
+                Console.WriteLine("*****               3: SUPPRIMER UN EMPLOYE                 *****");
+                Console.WriteLine("*****               4: AFFICHER LA LISTE DES EMPLOYES       *****");
+                Console.WriteLine("*****               5: RECHERCHER UN EMPLOYE                *****");
+                Console.WriteLine("*****               6: CALCULER LE SALAIRE DE L'EMPLOYE     *****");
+                Console.WriteLine("*****               7: FICHE DE PAIEMENT         *****");
+                Console.WriteLine("*****               8: HISTORIAUE LISTE FICHE PAIEMENT                 *****");
+                Console.WriteLine("*****               9: QUITTER                              *****");
                 Console.WriteLine("*****************************************************************");
                 Console.WriteLine("*****************************************************************");
                 choix = Convert.ToInt32(Console.ReadLine());
@@ -66,7 +69,19 @@ namespace projetFinal
                         CalculeSalaire.calcule_salaire(listeEmployes);
                         break;
 
-                    case 7:QuitterProgramme.Quitter();
+                    case 7:FichePaiement.AfficherFichePaiement(listeEmployes);
+
+
+                        break;
+
+                    case 8:
+                        ListePaiement.AfficherListeFichePaiement(listeEmployes);
+
+
+                        break;
+
+                    case 9:
+                        QuitterProgramme.Quitter();
 
 
                         break;
@@ -77,7 +92,8 @@ namespace projetFinal
                         break;
 
                 }
-            } while (choix != 7);
+            } while (choix != 9);
         }
     }
 }
+ 
